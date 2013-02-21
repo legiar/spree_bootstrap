@@ -1,0 +1,43 @@
+@import "font-awesome";
+
+figure {
+  margin: 0px;
+}
+
+#nav-bar {
+  float: right;
+  margin-top: 30px;
+  margin-bottom: 0px;
+
+  #link-to-cart {
+    > a {
+      display: inline-block;
+
+      + a {
+        padding-left: 0px;
+      }
+    }
+  }
+}
+
+#products {
+  .thumbnail {
+    text-align: center;
+  }
+}
+
+#registration {
+  #guest_checkout {
+    float: right;
+  }
+}
+
+p > label {
+  @include clearfix();
+  > input[type=checkbox] {
+    float: left;
+    + label {
+      margin-left: 20px;
+    }
+  }
+}
