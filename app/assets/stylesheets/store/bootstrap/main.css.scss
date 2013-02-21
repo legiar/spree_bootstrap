@@ -4,25 +4,41 @@ figure {
   margin: 0px;
 }
 
+#top-nav-bar {
+  margin-bottom: 10px;
+}
+
 #nav-bar {
   float: right;
   margin-top: 30px;
   margin-bottom: 0px;
+  i {
+    font-size: 20px;
+  }
+}
 
-  #link-to-cart {
-    > a {
-      display: inline-block;
+#link-to-cart {
+  > a {
+    display: inline-block;
 
-      + a {
-        padding-left: 0px;
-      }
+    + a {
+      padding-left: 0px;
     }
   }
 }
 
+#search-bar form {
+  margin-top: 4px;
+  margin-bottom: 0px;
+}
+
+
 #products {
   .thumbnail {
     text-align: center;
+    p.actions {
+      margin-bottom: 0px;
+    }
   }
 }
 
