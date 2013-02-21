@@ -7,6 +7,17 @@ module Spree
 
       config.autoload_paths += %W(#{config.root}/lib)
 
+      initializer "spree_bootstrap.environment", :before => :load_config_initializers do |app|
+        # TODO: Configuration
+      end    
+
+      initializer "spree_bootstrap.assets", group: :all do |app|
+        app.config.assets.precompile += %w[
+          jquery.js
+          modernizr.js
+        ]
+      end
+
       # use rspec for tests
       config.generators do |g|
         g.test_framework :rspec
