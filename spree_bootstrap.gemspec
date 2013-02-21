@@ -1,7 +1,7 @@
 # encoding: UTF-8
 Gem::Specification.new do |s|
   s.name          = 'spree_bootstrap'
-  s.version       = '1.3.2'
+  s.version       = '0.0.1'
   s.platform      = Gem::Platform::RUBY
   s.required_ruby_version = '>= 1.8.7'
 
@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.requirements  << 'none'
 
   s.add_dependency 'spree_core',          '~> 1.3'
+  s.add_dependency 'modernizr'
   s.add_dependency 'bootstrap-sass',      '2.2.2.0'
 
   #s.add_development_dependency 'capybara', '~> 1.1.2'
