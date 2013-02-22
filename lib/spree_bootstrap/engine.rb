@@ -23,7 +23,19 @@ module SpreeBootstrap
       app.config.spree_bootstrap = SpreeBootstrap::Environment.new
       SpreeBootstrap::Config = app.config.spree_bootstrap
       Spree::AppConfiguration.send(:include, SpreeBootstrap::AppConfiguration)
-    end    
+    end
+
+    # Rails Dev environment should reload the yml config on every request
+    if Rails.env.development?
+      initializer "spree_bootstrap.reload_on_development" do |app|
+        ActionController::Base.class_eval do
+          prepend_before_filter do
+            ::SpreeBootstrap::Config.reload!
+            Rails.application.config.deface.overrides.load_all(Rails.application)
+          end
+        end
+      end
+    end
 
     initializer "spree_bootstrap.assets", group: :all do |app|
       app.config.assets.precompile += %w[

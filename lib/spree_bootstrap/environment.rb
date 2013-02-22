@@ -12,6 +12,10 @@ module SpreeBootstrap
     setting :content_grid_class, "span9"
 
     def initialize
+      reload!
+    end
+
+    def reload!
       config = Rails.root.join("config", "bootstrap.yml")
       if File.exists?(config)
         content = open(config).read
