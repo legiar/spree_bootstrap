@@ -12,11 +12,7 @@ Deface::Override.new(
   :name               => 'add_cart_link_to_top_nav_bar',
   :virtual_path       => 'spree/shared/_nav_bar',
   :insert_top         => '#nav-bar',
-  :text               => %q{
-    <li id="link-to-cart" data-hook>
-      <%= link_to content_tag(:i, "", :class => "icon-shopping-cart") + link_to_cart, spree.cart_path %>
-    </li>
-  })
+  :text               => '<li id="link-to-cart" data-hook><%= link_to_cart %></li>')
 Deface::Override.new(
   :name               => 'replace_login_with_icon_in_top_nav_bar',
   :virtual_path       => 'spree/shared/_nav_bar',
