@@ -1,13 +1,26 @@
+if SpreeBootstrap::Config.layout == :fluid
+  Deface::Override.new(
+    :name               => 'set_main_container_class',
+    :virtual_path       => 'spree/layouts/spree_application',
+    :set_attributes     => 'body > .container',
+    :attributes         => {:class => 'container-fluid'})
+end
 Deface::Override.new(
   :name               => 'remove_wrapper_grid_class',
   :virtual_path       => 'spree/layouts/spree_application',
-  :set_attributes     => '#wrapper',
-  :attributes         => {:class => ''})
+  :remove_from_attributes => '#wrapper',
+  :attributes         => {:class => 'row'})
 Deface::Override.new(
-  :name               => 'wrap_wrapper_content_in_row',
+  :name               => 'wrap_wrapper_content_with_container_and_row',
   :virtual_path       => 'spree/layouts/spree_application',
   :surround_contents  => '#wrapper',
-  :text               => '<div class="row"><%= render_original %></div>')
+  :text               => %Q{
+    <div class="#{SpreeBootstrap::Config.container}">
+      <div class="#{SpreeBootstrap::Config.row}">
+        <%= render_original %>
+      </div>
+    </div>
+  })
 Deface::Override.new(
   :name               => 'change_content_grid_class',
   :virtual_path       => 'spree/layouts/spree_application',
