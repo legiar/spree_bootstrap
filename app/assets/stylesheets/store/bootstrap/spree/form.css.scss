@@ -1,0 +1,9 @@
+p > label {
+  @include clearfix();
+  > input[type=checkbox] {
+    float: left;
+    + label {
+      margin-left: 20px;
+    }
+  }
+}

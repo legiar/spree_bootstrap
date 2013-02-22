@@ -1,0 +1,36 @@
+.product-listing {
+
+  &.thumbnails > li {
+    height: 100%;
+  }
+
+  .thumbnail {
+    text-align: center;
+
+
+    h3 {
+      font-size: $baseFontSize * 1.25;
+      line-height: $baseLineHeight;
+    }
+
+    p.actions {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+#featured {
+  .carousel-control {
+    @include border-radius(0);
+    top: -33px;
+    
+    &.left { 
+      left: auto;
+      right: 42px;
+    }
+    
+    &.right {
+      right: 0;
+    }
+  }
+}

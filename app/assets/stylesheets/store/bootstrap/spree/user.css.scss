@@ -1,0 +1,9 @@
+#existing-customer,
+#new-customer,
+#forgot-password,
+#guest_checkout {
+  h6 {
+    font-size: $baseFontSize * 1.75;
+    line-height: $baseLineHeight * 2;
+  }
+}
