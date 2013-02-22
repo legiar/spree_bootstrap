@@ -1,0 +1,30 @@
+<div data-hook="featured_products">
+<% if @featured_products.any? %>
+  <h3>Featured Products</h3>
+  <div class="row-fluid">
+    <div id="featured" class="carousel slide">
+      <div class="carousel-inner">
+        <% @featured_products.select{|p| p.on_display?}.in_groups_of(4, false).each_with_index do |product_row, idx| %>
+          <div class="item <%= idx == 0 ? "active" : ""%>">
+            <ul class="thumbnails product-listing">
+              <% product_row.each do |product| %>
+                <li class="span3">
+                  <div class="thumbnail">
+                    <%= link_to small_image(product), product %>
+                    <h3><%= link_to truncate(product.name, :length => 50), product, :class => 'info', :title => product.name %></h3>
+                    <p class="actions">
+                      <span class="price selling"><%= product.price_in(current_currency).display_price %></span>
+                    </p>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <a class="left carousel-control" href="#featured" data-slide="prev">‹</a>
+      <a class="right carousel-control" href="#featured" data-slide="next">›</a>
+    </div>
+  </div>
+<% end %>
+</div>

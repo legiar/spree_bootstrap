@@ -18,3 +18,10 @@ Deface::Override.new(
       <%= t(:shop_by_taxonomy, :taxonomy => taxonomy.name) %>
     </li>
   })
+
+Deface::Override.new(
+  :name               => 'exclude_hidden_taxonomies',
+  :virtual_path       => 'spree/shared/_taxonomies',
+  :replace            => 'code:contains("get_taxonomies.each")',
+  :text               => '<% get_taxonomies.select{|t| t.visible?}.each do |taxonomy| %>')
+

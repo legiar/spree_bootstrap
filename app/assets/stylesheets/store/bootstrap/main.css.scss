@@ -33,7 +33,7 @@ figure {
 }
 
 
-#products {
+.product-listing {
   .thumbnail {
     text-align: center;
     p.actions {
@@ -61,5 +61,21 @@ p > label {
 #existing-customer {
   h6 {
     
+  }
+}
+
+#featured {
+  .carousel-control {
+    @include border-radius(0);
+    top: -33px;
+    
+    &.left { 
+      left: auto;
+      right: 42px;
+    }
+    
+    &.right {
+      right: 0;
+    }
   }
 }
