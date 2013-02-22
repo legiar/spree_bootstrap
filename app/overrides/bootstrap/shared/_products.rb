@@ -43,3 +43,8 @@ Deface::Override.new(
 #  :replace            => 'code[erb-loud]:contains("link_to small_image")',
 #  :text               => '<%= link_to product_image(product, :itemprop => "image"), product, :itemprop => "url" %>')
 
+Deface::Override.new(
+  :name               => 'change_products_list_paginator_theme',
+  :virtual_path       => 'spree/shared/_products',
+  :replace            => 'code[erb-loud]:contains("paginate paginated_products")',
+  :text               => '<%= paginate paginated_products, :theme => "spree" %>')
