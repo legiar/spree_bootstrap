@@ -7,7 +7,6 @@
   .thumbnail {
     text-align: center;
 
-
     h3 {
       font-size: $baseFontSize * 1.25;
       line-height: $baseLineHeight;
@@ -33,4 +32,8 @@
       right: 0;
     }
   }
+}
+
+#thumbnails {
+  margin-top: 10px;
 }

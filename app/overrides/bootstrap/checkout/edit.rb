@@ -22,5 +22,5 @@ Deface::Override.new(
   :name               => 'wrap_checkout_stage_in_row_class',
   :virtual_path       => 'spree/checkout/edit',
   :surround           => 'code[erb-loud]:contains("render @order.state")',
-  :text               => '<div id="row"><%= render_original %></div>')
+  :text               => '<div class="row"><%= render_original %></div>')
 
