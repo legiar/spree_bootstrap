@@ -15,3 +15,12 @@ Deface::Override.new(
   :attributes         => {
     "data-erb-class" => '<%= !content_for?(:sidebar) ? "span12" : "span9" %>'
   })
+Deface::Override.new(
+  :name               => 'remove_breadcrumbs',
+  :virtual_path       => 'spree/layouts/spree_application',
+  :remove             => 'code[erb-loud]:contains("breadcrumbs")')
+Deface::Override.new(
+  :name               => 'add_breadcrumbs_into_content_area',
+  :virtual_path       => 'spree/layouts/spree_application',
+  :insert_top         => '#content',
+  :text               => '<%= breadcrumbs(@taxon) %>')
