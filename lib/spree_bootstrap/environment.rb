@@ -17,6 +17,12 @@ module SpreeBootstrap
     setting :sidebar_grid_class, "span3"
     setting :content_grid_class, "span9"
 
+    setting :show_taxonomy_in_sidebar, true
+    setting :sidebar_taxonomy_in_one_list, false
+    setting :sidebar_taxonomy_list_class, ""
+    setting :sidebar_taxonomy_class, ""
+    setting :sidebar_taxon_list_class, "nav nav-pills nav-stacked"
+
     setting :product_per_row, 3
     setting :product_in_row_grid_class, "span3"
     setting :show_larger_image_in_product_list, false
