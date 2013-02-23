@@ -21,13 +21,21 @@ Deface::Override.new(
       </div>
     </div>
   })
+
+unless SpreeBootstrap::Config.sidebar_enabled
+  Deface::Override.new(
+    :name               => 'remove_sidebar',
+    :virtual_path       => 'spree/layouts/spree_application',
+    :remove             => 'code[erb-loud]:contains("spree/shared/sidebar")')
+end
 Deface::Override.new(
   :name               => 'change_content_grid_class',
   :virtual_path       => 'spree/layouts/spree_application',
   :set_attributes     => '#content',
-  :attributes         => {
-    "data-erb-class" => '<%= !content_for?(:sidebar) ? "span12" : "span9" %>'
-  })
+  :attributes         => SpreeBootstrap::Config.sidebar_enabled ? {
+    "data-erb-class" => %Q{<%= !content_for?(:sidebar) ? "span12" : "#{SpreeBootstrap::Config.content_grid_class}" %>}
+  } : {:class => "span12"})
+
 Deface::Override.new(
   :name               => 'remove_breadcrumbs',
   :virtual_path       => 'spree/layouts/spree_application',

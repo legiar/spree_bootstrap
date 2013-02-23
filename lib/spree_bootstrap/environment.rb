@@ -7,9 +7,23 @@ module SpreeBootstrap
     include SpreeBootstrap::Settings
 
     setting :layout, :fixed
+
+    setting :logo_grid_class, "span4"
+    setting :topnav_grid_class, "span8"
+    setting :mainnav_container, true
+    setting :mainnav_grid_class, "span12"
+
     setting :sidebar_enabled, true
     setting :sidebar_grid_class, "span3"
     setting :content_grid_class, "span9"
+
+    setting :product_per_row, 3
+    setting :product_in_row_grid_class, "span3"
+    setting :show_larger_image_in_product_list, false
+
+    setting :show_sidebar_on_product_page, false
+    setting :product_left_grid_class, "span5"
+    setting :product_right_grid_class, "span7"
 
     def initialize
       reload!
@@ -20,7 +34,7 @@ module SpreeBootstrap
       if File.exists?(config)
         content = open(config).read
         hash = content.empty? ? {} : YAML.load(ERB.new(content).result).to_hash
-        hash[Rails.env].each do |key, val|
+        hash.each do |key, val|
           self.class.setting key.to_sym, val
         end
       end

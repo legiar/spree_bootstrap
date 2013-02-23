@@ -1,19 +1,8 @@
-if SpreeBootstrap::Config.layout == :fluid 
-  Deface::Override.new(
-    :name               => 'wrap_main_nav_bar_with_row',
-    :virtual_path       => 'spree/shared/_main_nav_bar',
-    :surround           => 'nav',
-    :text               => %Q{
-      <div class="#{SpreeBootstrap::Config.row}">
-        <%= render_original %>
-      </div>
-    })
-end
 Deface::Override.new(
   :name               => 'change_main_nav_bar_grid_class',
   :virtual_path       => 'spree/shared/_main_nav_bar',
   :set_attributes     => 'nav',
-  :attributes         => {:class => 'span12 navbar'})
+  :attributes         => {:class => 'navbar ' + SpreeBootstrap::Config.mainnav_grid_class})
 Deface::Override.new(
   :name               => 'wrapp_main_nav_bar_list_in_innher',
   :virtual_path       => 'spree/shared/_main_nav_bar',

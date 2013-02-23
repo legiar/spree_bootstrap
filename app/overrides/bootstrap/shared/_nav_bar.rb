@@ -2,7 +2,7 @@ Deface::Override.new(
   :name               => 'replace_top_nav_bar_grid_class',
   :virtual_path       => 'spree/shared/_nav_bar',
   :set_attributes     => '#top-nav-bar',
-  :attributes         => {:class => 'span8'})
+  :attributes         => {:class => SpreeBootstrap::Config.topnav_grid_class})
 Deface::Override.new(
   :name               => 'add_top_nav_bar_list_class',
   :virtual_path       => 'spree/shared/_nav_bar',
