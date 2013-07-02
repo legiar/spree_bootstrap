@@ -11,7 +11,7 @@ Themes in Spree are typically implemented as [Spree extensions](http://guides.sp
 Once you have a rails application running Spree, it's a simple three step process to install the spree_bootstrap extension.  First, add the gem to your `Gemfile`:
 
 ```
-gem 'spree_boostrap', :git => 'git://github.com/legiar/spree_bootstrap.git'
+gem 'spree_bootstrap', :git => 'git://github.com/legiar/spree_bootstrap.git'
 ```
 
 Then install the gem via Bundler:
